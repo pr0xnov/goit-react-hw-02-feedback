@@ -6,34 +6,17 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <ul className={s.buttonsList}>
       <li>
-        <button
-          type="button"
-          className={s.button}
-          name={Object.keys(options)[0]}
-          onClick={onLeaveFeedback}
-        >
-          Good
-        </button>
-      </li>
-      <li>
-        <button
-          type="button"
-          className={s.button}
-          name={Object.keys(options)[1]}
-          onClick={onLeaveFeedback}
-        >
-          Neutral
-        </button>
-      </li>
-      <li>
-        <button
-          type="button"
-          className={s.button}
-          name={Object.keys(options)[2]}
-          onClick={onLeaveFeedback}
-        >
-          Bad
-        </button>
+        {options.map(elem => (
+          <button
+            key={elem}
+            type="button"
+            className={s.button}
+            name={elem}
+            onClick={onLeaveFeedback}
+          >
+            {elem}
+          </button>
+        ))}
       </li>
     </ul>
   );
